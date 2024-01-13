@@ -1,0 +1,111 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+Warning: PowerShell detected that you might be using a screen reader and has disabled PSReadLine for compatibility purposes. If you want to re-enable it, run 'Import-Module PSReadLine'.
+
+PS C:\Users\debjit> cd ..
+PS C:\Users> cd ..
+PS C:\> mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.27-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> crete database busbooking;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'crete database busbooking' at line 1
+MariaDB [(none)]> CREATE DATABASE busbooking;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| busbooking         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+6 rows in set (0.033 sec)
+
+MariaDB [(none)]> use busbooking;
+Database changed
+MariaDB [busbooking]> CREATE TABLE bus1 (passenger_name varchar(255), passenger_age int(11), contact bigint, journey_date date, from_place varchar(255), to_place varchar(255), ticket_number vachar(255));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(255))' at line 1
+MariaDB [busbooking]> CREATE TABLE bus1 (passenger_name varchar(255), passenger_age int(11), contact bigint, journey_date date, from_place varchar(255), to_place varchar(255), ticket_number varchar(255));
+Query OK, 0 rows affected (0.023 sec)
+
+MariaDB [busbooking]> show tables;
++----------------------+
+| Tables_in_busbooking |
++----------------------+
+| bus1                 |
++----------------------+
+1 row in set (0.008 sec)
+
+MariaDB [busbooking]> desc bus1;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| passenger_name | varchar(255) | YES  |     | NULL    |       |
+| passenger_age  | int(11)      | YES  |     | NULL    |       |
+| contact        | bigint(20)   | YES  |     | NULL    |       |
+| journey_date   | date         | YES  |     | NULL    |       |
+| from_place     | varchar(255) | YES  |     | NULL    |       |
+| to_place       | varchar(255) | YES  |     | NULL    |       |
+| ticket_number  | varchar(255) | YES  |     | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+7 rows in set (0.037 sec)
+
+MariaDB [busbooking]> CREATE TABLE bus2 (passenger_name varchar(255), passenger_age int(11), contact bigint, journey_date date, from_place varchar(255), to_place varchar(255), ticket_number varchar(255));
+Query OK, 0 rows affected (0.015 sec)
+
+MariaDB [busbooking]> desc bus2;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| passenger_name | varchar(255) | YES  |     | NULL    |       |
+| passenger_age  | int(11)      | YES  |     | NULL    |       |
+| contact        | bigint(20)   | YES  |     | NULL    |       |
+| journey_date   | date         | YES  |     | NULL    |       |
+| from_place     | varchar(255) | YES  |     | NULL    |       |
+| to_place       | varchar(255) | YES  |     | NULL    |       |
+| ticket_number  | varchar(255) | YES  |     | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+7 rows in set (0.026 sec)
+
+MariaDB [busbooking]> select *from bus2;
+Empty set (0.070 sec)
+
+MariaDB [busbooking]> select *from bus1;
++----------------+---------------+---------+--------------+------------+----------+---------------+
+| passenger_name | passenger_age | contact | journey_date | from_place | to_place | ticket_number |
++----------------+---------------+---------+--------------+------------+----------+---------------+
+| Debjit Purohit |            22 |       0 | 2024-01-01   | Asansol    | Kolkata  | NO3XXZQ       |
++----------------+---------------+---------+--------------+------------+----------+---------------+
+1 row in set (0.001 sec)
+
+MariaDB [busbooking]> select *from bus1;
++----------------+---------------+------------+--------------+------------+----------+---------------+
+| passenger_name | passenger_age | contact    | journey_date | from_place | to_place | ticket_number |
++----------------+---------------+------------+--------------+------------+----------+---------------+
+| Debjit Purohit |            22 |          0 | 2024-01-01   | Asansol    | Kolkata  | NO3XXZQ       |
+| debu           |            24 |          0 | 2024-01-01   | Asansol    | Kolkata  | 7826XB0       |
+| ddebu2         |            21 | 8670824999 | 2024-01-01   | Asansol    | Kolkata  | FOJF2MK       |
++----------------+---------------+------------+--------------+------------+----------+---------------+
+3 rows in set (0.001 sec)
+
+MariaDB [busbooking]> select *from bus2;
++----------------+---------------+------------+--------------+------------+----------+---------------+
+| passenger_name | passenger_age | contact    | journey_date | from_place | to_place | ticket_number |
++----------------+---------------+------------+--------------+------------+----------+---------------+
+| susmita        |            21 | 8523697414 | 2024-01-22   | Asansol    | Dhanbad  | JB6VBM6       |
++----------------+---------------+------------+--------------+------------+----------+---------------+
+1 row in set (0.001 sec)
